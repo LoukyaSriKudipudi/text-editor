@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Editor</title>
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Text Editor</h1>
+    </header>
+    <main>
+      <section class="inputContainer">
+        <textarea
+          class="input"
+          rows="10"
+          name="input"
+          id="input"
+          placeholder="Enter text here..."
+        ></textarea>
+        <div class="selectAndinputButtons">
+          <select class="select">
+            <option class="option" value="uppercase">Upper Case</option>
+            <option class="option" value="lowercase">Lower Case</option>
+            <option class="option" value="replace">Replace</option>
+            <option class="option" value="lengthcounter">
+              Count Text Length
+            </option>
+            <option class="option" value="trimspace">
+              Trim Leading and trailing Spaces
+            </option>
+            <option class="option" value="padsstart">Pads Start</option>
+            <option class="option" value="padsend">Pads End</option>
+            <option class="option" value="converttosnakecase">
+              Convert To Sanke Case
+            </option>
+            <option class="option" value="convertopascalcase">
+              Convert to Pascal Case
+            </option>
+            <option class="option" value="convertocamelcase">
+              Convert to camelCase
+            </option>
+          </select>
+          <input class="place" type="text" placeholder="Place" required />
+          <input class="replace" type="text" placeholder="Replace" required />
+          <div class="inputButtons">
+            <button class="inputReset" type="reset">Clear</button>
+            <button class="submit" type="submit">Submit</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="outputContainer">
+        <textarea
+          readonly
+          class="output"
+          rows="10"
+          cols="50"
+          name="output"
+          id="output"
+          placeholder="output"
+        ></textarea>
+
+        <div class="outputButtons">
+          <button class="copyButton" type="button">Copy</button>
+          <button class="swap" type="button">Swap</button>
+          <button class="outputReset" type="reset">Clear</button>
+          <button class="save" type="button">Save</button>
+          <button class="downloadOutput" type="button">Download</button>
+        </div>
+      </section>
+      <section class="historySection">
+        <h2>History</h2>
+        <div class="searchAndDeleteContainer">
+          <input
+            placeholder="Search history"
+            class="filter"
+            id="filter"
+            name="filter"
+            type="text"
+          />
+          <button class="deleteHistory">Delete History</button>
+        </div>
+        <section>
+          <dialog class="modal">
+            <div class="modelContent">
+              <p>Are you sure?</p>
+              <p>
+                Do you really want to delete history? The process cannot be
+                undone.
+              </p>
+              <button class="cancelNo">Cancel</button>
+              <button class="deleteYes">Delete</button>
+            </div>
+          </dialog>
+        </section>
+        <div class="historyContainer"></div>
+      </section>
+    </main>
+    <footer>
+      <p class="footerText">Designed by <span>Loukya Sri</span></p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- loukya sri -->

@@ -1,0 +1,259 @@
+@import "https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Space+Mono:ital,wght@0,700;1,400;1,700&display=swap";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Funnel Display", sans-serif;
+}
+
+body {
+  width: 90vw;
+  max-width: 700px;
+  margin: auto;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #1c1b1a;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.inputContainer,
+.outputContainer {
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  height: 10em;
+  gap: 1em;
+  background-color: #faf9f6;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.input,
+.output {
+  flex: 1;
+}
+
+@media (orientation: portrait) {
+  .inputContainer,
+  .outputContainer {
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    height: 20em;
+    gap: 1em;
+    background-color: #faf9f6;
+    padding: 1em;
+    border-radius: 10px;
+  }
+
+  .outputContainer {
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    height: 20em;
+    gap: 1em;
+    background-color: #faf9f6;
+    padding: 1em;
+    border-radius: 10px;
+  }
+
+  .inputButtons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.selectAndinputButtons,
+.outputButtons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: auto;
+  gap: 0.5em;
+}
+
+.inputButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input,
+.select,
+.place,
+.replace,
+.option,
+.output,
+.filter {
+  padding: 0.6em;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #eee;
+  font-size: 1rem;
+}
+
+.input:focus,
+.output:focus,
+.select:focus,
+.option:focus,
+.place:focus,
+.replace:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid #f777;
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border-radius: 10px;
+  height: auto;
+  border: 2px solid #ddd;
+  /* background: linear-gradient(to right, #f7f7f7, #eee); */
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #aaa;
+}
+
+.histroyTextArea {
+  padding: 10px;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #eee;
+}
+
+.historyContainer {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.histroyTextArea {
+  flex: 1;
+  resize: vertical;
+}
+
+.eachHistoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.eachHistoryContainer button {
+  width: 100px;
+}
+
+.historySection {
+  margin-top: 20px;
+}
+
+.autoSaveMessage {
+  font-size: 0.9rem;
+  color: green;
+  margin-top: 5px;
+}
+
+.editAndDeleteTextContainer {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.editAndDeleteTextContainer button {
+  flex: 1;
+}
+
+.footerText {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.footerText Span {
+  color: #f77;
+  font-weight: 800;
+}
+
+.cancelNo,
+.deleteYes {
+  padding: 0.5rem;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  background: #fff;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-size: 1rem;
+  animation: popIn 0.2s ease-in-out;
+}
+
+.modal p {
+  margin-bottom: 1rem;
+}
+
+.modal button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 0 5px #ddd;
+  z-index: 9999;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+::selection {
+  color: #eee;
+  background-color: #1c1b1a;
+}
+
+.searchAndDeleteContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+  gap: 0.6em;
+}
+.filter {
+  flex: 1;
+}
+
+.historyDeleteButton {
+  height: auto;
+  padding: 0.5em 1.2em;
+  font-size: 1rem;
+}
