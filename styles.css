@@ -324,6 +324,9 @@ textarea {
   animation: fadeOut 1.5s ease forwards;
 }
 
+.historyContainer p {
+  margin-top: 1rem;
+}
 @keyframes fadeOut {
   0% {
     opacity: 1;
