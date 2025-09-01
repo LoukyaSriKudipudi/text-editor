@@ -83,6 +83,15 @@ textarea {
   align-items: center;
 }
 
+.replace-group {
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .select {
   flex: 1;
   padding: 0.5rem;
