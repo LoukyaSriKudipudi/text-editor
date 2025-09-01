@@ -1,259 +1,316 @@
-@import "https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Space+Mono:ital,wght@0,700;1,400;1,700&display=swap";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
-  font-family: "Funnel Display", sans-serif;
+  padding: 0;
 }
 
 body {
-  width: 90vw;
-  max-width: 700px;
-  margin: auto;
-  padding: 1rem 0;
+  font-family: "Poppins", sans-serif;
+  background: #f3f4f8;
+  color: #222;
+  line-height: 1.5;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  color: #1c1b1a;
+  min-height: 100vh;
 }
 
-h1 {
-  margin-bottom: 20px;
+.app-header {
+  background: #4a6cf7;
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.inputContainer,
-.outputContainer {
-  border: 1px solid #ddd;
+.app-header .logo {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 2em;
-  height: 10em;
-  gap: 1em;
-  background-color: #faf9f6;
-  padding: 1em;
-  border-radius: 10px;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1rem;
+}
+#title {
+  font-size: 1.5rem;
 }
 
-.input,
-.output {
+.app-container {
   flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 900px;
+  width: 90%;
+  margin: 2rem auto;
 }
 
-@media (orientation: portrait) {
-  .inputContainer,
-  .outputContainer {
-    border: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 2em;
-    height: 20em;
-    gap: 1em;
-    background-color: #faf9f6;
-    padding: 1em;
-    border-radius: 10px;
-  }
-
-  .outputContainer {
-    border: 1px solid #ddd;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 2em;
-    height: 20em;
-    gap: 1em;
-    background-color: #faf9f6;
-    padding: 1em;
-    border-radius: 10px;
-  }
-
-  .inputButtons {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+.card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.selectAndinputButtons,
-.outputButtons {
+.section-title {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4a6cf7;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  resize: vertical;
+}
+
+.selectAndinputButtons {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  height: auto;
-  gap: 0.5em;
+  gap: 1rem;
+}
+
+.select-group,
+.replace-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.select {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.place,
+.replace {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
 }
 
 .inputButtons {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  gap: 0.75rem;
 }
 
-.input,
-.select,
-.place,
-.replace,
-.option,
-.output,
-.filter {
-  padding: 0.6em;
-  border: 2px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 0 5px #eee;
-  font-size: 1rem;
-}
-
-.input:focus,
-.output:focus,
-.select:focus,
-.option:focus,
-.place:focus,
-.replace:focus,
-textarea:focus {
-  outline: none;
-  border: 2px solid #f777;
-}
-
-button {
-  cursor: pointer;
-  padding: 0.5em 1em;
-  font-size: 1rem;
-  border-radius: 10px;
-  height: auto;
-  border: 2px solid #ddd;
-  /* background: linear-gradient(to right, #f7f7f7, #eee); */
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background-color: #aaa;
-}
-
-.histroyTextArea {
-  padding: 10px;
-  border: 2px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 0 5px #eee;
-}
-
-.historyContainer {
-  width: 100%;
-  margin: 20px auto;
-}
-
-.histroyTextArea {
-  flex: 1;
-  resize: vertical;
-}
-
-.eachHistoryContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #fafafa;
-}
-
-.eachHistoryContainer button {
-  width: 100px;
-}
-
-.historySection {
-  margin-top: 20px;
-}
-
-.autoSaveMessage {
-  font-size: 0.9rem;
-  color: green;
-  margin-top: 5px;
-}
-
-.editAndDeleteTextContainer {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px;
-}
-.editAndDeleteTextContainer button {
-  flex: 1;
-}
-
-.footerText {
-  margin-top: 50px;
-  text-align: center;
-}
-
-.footerText Span {
-  color: #f77;
-  font-weight: 800;
-}
-
-.cancelNo,
-.deleteYes {
-  padding: 0.5rem;
-}
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: none;
-  border-radius: 12px;
-  padding: 2rem;
-  max-width: 400px;
-  width: 90%;
-  background: #fff;
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-size: 1rem;
-  animation: popIn 0.2s ease-in-out;
-}
-
-.modal p {
-  margin-bottom: 1rem;
-}
-
-.modal button {
+.inputButtons button,
+.outputButtons button,
+.deleteHistory,
+.modal-actions button {
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 8px;
-  margin: 0 0.5rem;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 0 5px #ddd;
-  z-index: 9999;
+  font-size: 0.9rem;
+  transition: 0.2s;
 }
 
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.5);
+.inputReset {
+  background: #f87171;
+  color: #fff;
 }
 
-::selection {
-  color: #eee;
-  background-color: #1c1b1a;
+.submit {
+  background: #4ade80;
+  color: #fff;
+}
+
+.outputButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.outputButtons button {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #e5e7eb;
+  color: #111;
+  padding: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.outputButtons button:hover {
+  background: #4a6cf7;
+  color: #fff;
+}
+
+.history-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .searchAndDeleteContainer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1em;
-  gap: 0.6em;
+  gap: 0.75rem;
 }
+
 .filter {
   flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.deleteHistory {
+  background: #f87171;
+  color: #fff;
+}
+
+.modal {
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.modelContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.cancelNo {
+  background: #e5e7eb;
+}
+
+.deleteYes {
+  background: #f87171;
+  color: #fff;
+}
+
+.app-footer {
+  background: #f9fafb;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footerText span {
+  font-weight: 600;
+  color: #4a6cf7;
+}
+
+/* ===== History Items ===== */
+.eachHistoryContainer {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.histroyTextArea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  background: #f9fafb;
+  transition: border 0.2s;
+}
+
+.histroyTextArea:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  background: #fff;
+}
+
+/* ===== Buttons inside History ===== */
+.editAndDeleteTextContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.historyDeleteButton,
+.historyEditButton,
+.editAndDeleteTextContainer button {
+  padding: 0.4rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
 }
 
 .historyDeleteButton {
-  height: auto;
-  padding: 0.5em 1.2em;
-  font-size: 1rem;
+  background: #f87171;
+  color: #fff;
+}
+
+.historyDeleteButton:hover {
+  background: #dc2626;
+}
+
+.historyEditButton {
+  background: #e5e7eb;
+  color: #222;
+}
+
+.historyEditButton:hover {
+  background: #4a6cf7;
+  color: #fff;
+}
+
+.editAndDeleteTextContainer button:nth-child(2) {
+  background: #4ade80;
+  color: #fff;
+}
+
+.editAndDeleteTextContainer button:nth-child(2):hover {
+  background: #22c55e;
+}
+
+/* ===== Auto-Save Message ===== */
+.autoSaveMessage {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #16a34a;
+  margin-top: 0.5rem;
+  animation: fadeOut 1.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

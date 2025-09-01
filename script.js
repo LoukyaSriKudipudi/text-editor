@@ -157,12 +157,12 @@ swap.addEventListener("click", () => {
   input.value = output.value;
 });
 
-let copyButtonText = copyButton.textContent;
+let copyButtonText = copyButton.innerHTML;
 copyButton.addEventListener("click", () => {
   navigator.clipboard.writeText(output.value);
-  copyButton.textContent = "Copied to Clipboard";
+  copyButton.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
   setTimeout(() => {
-    copyButton.textContent = copyButtonText;
+    copyButton.innerHTML = copyButtonText;
   }, 1000);
 });
 
@@ -170,9 +170,6 @@ inputReset.addEventListener("click", () => {
   input.value = "";
   place.value = "";
   replace.value = "";
-});
-outputReset.addEventListener("click", () => {
-  output.value = "";
 });
 
 output.addEventListener("click", () => {

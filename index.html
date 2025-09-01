@@ -4,104 +4,138 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text Editor</title>
-    <link href="styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
   <body>
-    <header>
-      <h1>Text Editor</h1>
+    <header class="app-header">
+      <div class="logo">
+        <i class="fa-solid fa-pen-to-square"></i>
+        <h1 id="title">Text Editor</h1>
+      </div>
     </header>
-    <main>
-      <section class="inputContainer">
+
+    <main class="app-container">
+      <!-- Input Section -->
+      <section class="inputContainer card">
+        <label for="input" class="section-title">
+          <i class="fa-solid fa-keyboard"></i> Input Text
+        </label>
         <textarea
           class="input"
-          rows="10"
-          name="input"
           id="input"
-          placeholder="Enter text here..."
+          name="input"
+          rows="8"
+          placeholder="Start typing here..."
         ></textarea>
+
         <div class="selectAndinputButtons">
-          <select class="select">
-            <option class="option" value="uppercase">Upper Case</option>
-            <option class="option" value="lowercase">Lower Case</option>
-            <option class="option" value="replace">Replace</option>
-            <option class="option" value="lengthcounter">
-              Count Text Length
-            </option>
-            <option class="option" value="trimspace">
-              Trim Leading and trailing Spaces
-            </option>
-            <option class="option" value="padsstart">Pads Start</option>
-            <option class="option" value="padsend">Pads End</option>
-            <option class="option" value="converttosnakecase">
-              Convert To Sanke Case
-            </option>
-            <option class="option" value="convertopascalcase">
-              Convert to Pascal Case
-            </option>
-            <option class="option" value="convertocamelcase">
-              Convert to camelCase
-            </option>
-          </select>
-          <input class="place" type="text" placeholder="Place" required />
-          <input class="replace" type="text" placeholder="Replace" required />
+          <div class="select-group">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <select class="select">
+              <option value="uppercase">Upper Case</option>
+              <option value="lowercase">Lower Case</option>
+              <option value="replace">Replace</option>
+              <option value="lengthcounter">Count Length</option>
+              <option value="trimspace">Trim Spaces</option>
+              <option value="padsstart">Pads Start</option>
+              <option value="padsend">Pads End</option>
+              <option value="converttosnakecase">Snake Case</option>
+              <option value="convertopascalcase">Pascal Case</option>
+              <option value="convertocamelcase">camelCase</option>
+            </select>
+          </div>
+
+          <div class="replace-group">
+            <input class="place" type="text" placeholder="Find..." />
+            <input class="replace" type="text" placeholder="Replace with..." />
+          </div>
+
           <div class="inputButtons">
-            <button class="inputReset" type="reset">Clear</button>
-            <button class="submit" type="submit">Submit</button>
+            <button class="inputReset" type="reset">
+              <i class="fa-solid fa-broom"></i> Clear
+            </button>
+            <button class="submit" type="submit">
+              <i class="fa-solid fa-check"></i> Apply
+            </button>
           </div>
         </div>
       </section>
 
-      <section class="outputContainer">
+      <!-- Output Section -->
+      <section class="outputContainer card">
+        <label for="output" class="section-title">
+          <i class="fa-solid fa-file-lines"></i> Output
+        </label>
         <textarea
           readonly
           class="output"
-          rows="10"
-          cols="50"
-          name="output"
           id="output"
-          placeholder="output"
+          rows="8"
+          placeholder="Output will appear here..."
         ></textarea>
 
         <div class="outputButtons">
-          <button class="copyButton" type="button">Copy</button>
-          <button class="swap" type="button">Swap</button>
-          <button class="outputReset" type="reset">Clear</button>
-          <button class="save" type="button">Save</button>
-          <button class="downloadOutput" type="button">Download</button>
+          <button class="copyButton" title="Copy">
+            <i class="fa-solid fa-copy"></i>
+          </button>
+          <button class="swap" title="Swap">
+            <i class="fa-solid fa-right-left"></i>
+          </button>
+          <button class="outputReset" title="Clear Output">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button class="save" title="Save">
+            <i class="fa-solid fa-floppy-disk"></i>
+          </button>
+          <button class="downloadOutput" title="Download">
+            <i class="fa-solid fa-download"></i>
+          </button>
         </div>
       </section>
-      <section class="historySection">
-        <h2>History</h2>
-        <div class="searchAndDeleteContainer">
-          <input
-            placeholder="Search history"
-            class="filter"
-            id="filter"
-            name="filter"
-            type="text"
-          />
-          <button class="deleteHistory">Delete History</button>
+
+      <!-- History Section -->
+      <section class="historySection card">
+        <div class="history-header">
+          <h2><i class="fa-solid fa-clock-rotate-left"></i> History</h2>
+          <div class="searchAndDeleteContainer">
+            <input
+              class="filter"
+              id="filter"
+              type="text"
+              placeholder="Search history..."
+            />
+            <button class="deleteHistory">
+              <i class="fa-solid fa-trash"></i> Clear History
+            </button>
+          </div>
         </div>
-        <section>
-          <dialog class="modal">
-            <div class="modelContent">
-              <p>Are you sure?</p>
-              <p>
-                Do you really want to delete history? The process cannot be
-                undone.
-              </p>
+
+        <dialog class="modal">
+          <div class="modelContent">
+            <h3><i class="fa-solid fa-circle-exclamation"></i> Confirm</h3>
+            <p>Do you really want to delete history? This cannot be undone.</p>
+            <div class="modal-actions">
               <button class="cancelNo">Cancel</button>
               <button class="deleteYes">Delete</button>
             </div>
-          </dialog>
-        </section>
+          </div>
+        </dialog>
+
         <div class="historyContainer"></div>
       </section>
     </main>
-    <footer>
-      <p class="footerText">Designed by <span>Loukya Sri</span></p>
+
+    <footer class="app-footer">
+      <p class="footerText">
+        Made with <i class="fa-solid fa-heart"></i> by
+        <span>Loukya Sri</span>
+      </p>
     </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
-<!-- loukya sri -->
